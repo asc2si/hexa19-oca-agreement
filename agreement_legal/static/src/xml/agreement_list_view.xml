@@ -1,15 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <templates>
-    <t
-        t-name="agreement_legal.ListView"
-        t-inherit="web.ListView.Buttons"
-        t-inherit-mode="primary"
-    >
-        <xpath expr="//div[hasclass('o_list_buttons')]" position="attributes">
-            <attribute name="t-if">canCreateTemplate</attribute>
-        </xpath>
-        <xpath expr="//div[hasclass('o_list_buttons')]" position="after">
-            <t t-call="agreement_legal.TemplateButton" />
-        </xpath>
+    <!-- v19 : ce template est appelé via props.buttonTemplate dans le slot
+         layout-buttons de "web.ListView" (voir list_view.esm.js), PAS via héritage
+         de "web.ListView.Buttons" qui est désormais vide en v19 — inheriter de ce
+         template vide n'a donc plus de sens, on définit directement le contenu. -->
+    <t t-name="agreement_legal.ListView">
+        <t t-call="agreement_legal.TemplateButton" />
     </t>
 </templates>

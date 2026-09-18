@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <templates>
-    <t
-        t-name="agreement_legal.KanbanViewButtons"
-        t-inherit="web.KanbanView.Buttons"
-        t-inherit-mode="primary"
-    >
-        <div role="toolbar" position="inside">
-            <t t-call="agreement_legal.TemplateButton" />
-        </div>
+    <!-- v19 : "agreement_legal.KanbanViewButtons" est appelé via props.buttonTemplate
+         dans le slot layout-buttons de "web.KanbanView" (voir kanban_view.esm.js), PAS
+         via héritage de "web.KanbanView.Buttons" qui est désormais vide en v19. -->
+    <t t-name="agreement_legal.KanbanViewButtons">
+        <t t-call="agreement_legal.TemplateButton" />
     </t>
+    <!-- Bloc suivant : vérifié non référencé par aucun JS du module (dead code
+         hérité), laissé en l'état mais rendu inoffensif (la cible o-kanban-button-new
+         existe toujours bien en v19, donc plus de risque de crash si jamais réactivé). -->
     <t
         t-name="agreement_legal.KanbanView"
         t-inherit="web.KanbanView"

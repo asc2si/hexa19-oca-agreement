@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <templates>
     <t t-inherit="web.FormView" t-inherit-mode="extension">
+        <!-- v19 : le bouton "New" du control-panel-create-button slot est passé
+             de class="btn btn-secondary o_form_button_create" (v18) à
+             class="btn btn-outline-primary o_form_button_create" (v19). -->
         <xpath
-            expr="//*[@class='btn btn-secondary o_form_button_create']"
+            expr="//*[@class='btn btn-outline-primary o_form_button_create']"
             position="after"
         >
             <t t-if="props.resModel === 'agreement'">
@@ -10,7 +13,7 @@
             </t>
         </xpath>
         <xpath
-            expr="//*[@class='btn btn-secondary o_form_button_create']"
+            expr="//*[@class='btn btn-outline-primary o_form_button_create']"
             position="attributes"
         >
             <attribute name="t-if">canCreateTemplate</attribute>
